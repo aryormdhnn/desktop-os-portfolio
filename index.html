@@ -332,12 +332,14 @@
       .shortcuts {
         top: calc(max(28px, env(safe-area-inset-top)) + 12px);
         left: 50%;
-        width: 80px;
+        width: min(286px, calc(100vw - 32px));
         transform: translateX(-50%);
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 16px 6px;
       }
-      .shortcut { width: 100%; gap: 6px; }
+      .shortcut { grid-column: span 2; width: 100%; gap: 6px; }
+      .shortcut:nth-child(4) { grid-column: 2 / span 2; }
+      .shortcut:nth-child(5) { grid-column: 4 / span 2; }
       .shortcut__tile { width: 58px; height: 58px; border-radius: 17px; }
       .shortcut svg { width: 23px; height: 23px; }
       .shortcut__label { font-size: 11px; }
@@ -379,7 +381,7 @@
 
     @media (max-width: 370px) {
       .shortcuts { gap: 14px 2px; }
-      .shortcut__tile { width: 54px; height: 54px; border-radius: 16px; }
+      .shortcut__tile { width: 58px; height: 58px; border-radius: 16px; }
       .shortcut svg { width: 22px; height: 22px; }
       .shortcut__label { font-size: 10.5px; }
       .window-body { padding-left: 15px; padding-right: 15px; }
