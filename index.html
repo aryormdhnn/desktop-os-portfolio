@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-85nDAC0edw6E0oSEc1V6+sx4djAAgTUuTxFNiEZHtzk='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types default; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-WkqA/y6CxhyWN3QHJmwt0r5d1yz0OVT7ViJ7j8B0m5I='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types default; upgrade-insecure-requests" />
   <meta name="referrer" content="no-referrer" />
   <title>Aryo Romadhon Vardhana — Portfolio Desktop</title>
   <style>
@@ -80,6 +80,7 @@
       -webkit-tap-highlight-color: transparent;
     }
     .shortcut__tile {
+      position: relative;
       width: 64px;
       height: 64px;
       display: grid;
@@ -108,6 +109,18 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 12px 26px rgba(9, 70, 63, .17);
     }
     .shortcut:active .shortcut__tile { transform: translateY(0) scale(.97); }
+    .shortcut__tile::after {
+      content: "";
+      position: absolute;
+      inset: -7px;
+      border-radius: inherit;
+      opacity: 0;
+      box-shadow: 0 0 18px rgba(255, 210, 63, .45);
+      pointer-events: none;
+      transition: opacity .18s ease;
+    }
+    .shortcut:hover .shortcut__tile::after,
+    .shortcut:focus-visible .shortcut__tile::after { opacity: 1; }
 
     .window {
       position: absolute;
@@ -127,18 +140,24 @@
       -webkit-backdrop-filter: blur(24px) saturate(135%);
       transform-origin: 50% 45%;
     }
-    .window.is-open { display: flex; z-index: 100; animation: window-in .24s cubic-bezier(.2,.8,.2,1) both; }
-    .window.is-closing { animation: window-out .16s ease both; pointer-events: none; }
+    .window.is-open { display: flex; z-index: 100; animation: window-in .21s cubic-bezier(.2,.82,.28,1) both; }
+    .window.is-open.is-restoring { animation: window-restore .22s cubic-bezier(.2,.82,.28,1) both; }
+    .window.is-closing { animation: window-out .16s cubic-bezier(.4,0,1,1) both; pointer-events: none; }
     .window.is-maximized {
       width: calc(100vw - 32px) !important;
       height: calc(100dvh - 32px) !important;
       top: 16px !important;
       left: 16px !important;
     }
-    .window.is-minimized { animation: minimize .18s ease forwards; }
-    @keyframes window-in { from { opacity: 0; transform: translateY(12px) scale(.975); } to { opacity: 1; transform: none; } }
-    @keyframes window-out { to { opacity: 0; transform: translateY(10px) scale(.975); } }
-    @keyframes minimize { to { opacity: 0; transform: translateY(30px) scale(.88); } }
+    .window.is-minimized { animation: window-minimize .2s cubic-bezier(.4,0,.6,1) both; pointer-events: none; }
+    .window.is-open,
+    .window.is-closing,
+    .window.is-minimized,
+    .window.is-restoring { will-change: transform, opacity; }
+    @keyframes window-in { from { opacity: 0; transform: translateY(10px) scale(.95); } to { opacity: 1; transform: none; } }
+    @keyframes window-restore { from { opacity: 0; transform: translateY(24px) scale(.9); } to { opacity: 1; transform: none; } }
+    @keyframes window-out { to { opacity: 0; transform: translateY(8px) scale(.95); } }
+    @keyframes window-minimize { to { opacity: 0; transform: translateY(34px) scale(.86); } }
 
     .titlebar {
       flex: 0 0 48px;
@@ -551,6 +570,18 @@
     }
     .experience-list { border-top: 2px solid var(--line); }
     .experience-row { border-bottom: 2px solid var(--line); }
+
+    .traffic-light,
+    .explicit-close,
+    .download-btn,
+    .contact-link,
+    .project-card__link { transition: transform .12s ease, background-color .18s ease, color .18s ease, box-shadow .18s ease; }
+    .traffic-light:active { transform: scale(.82); }
+    .explicit-close:active,
+    .download-btn:active,
+    .contact-link:active { transform: scale(.97); }
+    .project-card__link:active { transform: scale(.985); }
+
     @media (max-width: 768px) {
       .desktop { background-position: 52% center; }
       .shortcuts {
@@ -912,23 +943,30 @@
       function openWindow(name, trigger) {
         var win = document.getElementById('window-' + name);
         if (!win) return;
+        var wasMinimized = win.dataset.minimized === 'true';
         lastTrigger[name] = trigger || lastTrigger[name];
-        if (win.classList.contains('is-minimized')) win.classList.remove('is-minimized');
-        win.classList.remove('is-closing');
+        win.dataset.minimized = 'false';
+        win.classList.remove('is-closing', 'is-minimized', 'is-restoring');
+        if (wasMinimized && !reduceMotion) win.classList.add('is-restoring');
         win.classList.add('is-open');
         win.setAttribute('aria-hidden', 'false');
         bringToFront(win);
+        if (wasMinimized && !reduceMotion) {
+          window.setTimeout(function () { win.classList.remove('is-restoring'); }, 230);
+        }
         window.setTimeout(function () {
           var focusTarget = win.querySelector('.explicit-close');
           if (focusTarget) focusTarget.focus({ preventScroll: true });
-        }, reduceMotion ? 0 : 230);
+        }, reduceMotion ? 0 : 220);
       }
       function closeWindow(win) {
         if (!win || !win.classList.contains('is-open')) return;
         var name = windowName(win);
+        win.dataset.minimized = 'false';
+        win.classList.remove('is-restoring');
         win.classList.add('is-closing');
         var finish = function () {
-          win.classList.remove('is-open', 'is-closing', 'is-minimized');
+          win.classList.remove('is-open', 'is-closing', 'is-minimized', 'is-restoring');
           win.setAttribute('aria-hidden', 'true');
           var openWins = windows.filter(function (item) { return item.classList.contains('is-open'); });
           if (openWins.length) {
@@ -938,6 +976,39 @@
           if (lastTrigger[name]) lastTrigger[name].focus({ preventScroll: true });
         };
         window.setTimeout(finish, reduceMotion ? 0 : 160);
+      }
+
+      function minimizeWindow(win) {
+        if (!win || !win.classList.contains('is-open')) return;
+        win.dataset.minimized = 'true';
+        win.classList.remove('is-restoring');
+        if (!reduceMotion) win.classList.add('is-minimized');
+        window.setTimeout(function () {
+          win.classList.remove('is-open', 'is-minimized');
+          win.setAttribute('aria-hidden', 'true');
+        }, reduceMotion ? 0 : 200);
+      }
+
+      function toggleMaximize(win) {
+        if (!win || !win.classList.contains('is-open')) return;
+        if (reduceMotion || typeof win.animate !== 'function') {
+          win.classList.toggle('is-maximized');
+          bringToFront(win);
+          return;
+        }
+        var first = win.getBoundingClientRect();
+        win.classList.toggle('is-maximized');
+        var last = win.getBoundingClientRect();
+        var deltaX = first.left - last.left;
+        var deltaY = first.top - last.top;
+        var scaleX = first.width / last.width;
+        var scaleY = first.height / last.height;
+        var motion = win.animate([
+          { transformOrigin: 'top left', transform: 'translate(' + deltaX + 'px,' + deltaY + 'px) scale(' + scaleX + ',' + scaleY + ')', opacity: .96 },
+          { transformOrigin: 'top left', transform: 'translate(0,0) scale(1)', opacity: 1 }
+        ], { duration: 240, easing: 'cubic-bezier(.2,.82,.28,1)', fill: 'both' });
+        motion.addEventListener('finish', function () { motion.cancel(); }, { once: true });
+        bringToFront(win);
       }
 
       shortcuts.forEach(function (shortcut) {
@@ -953,14 +1024,8 @@
         var zoom = win.querySelector('.traffic-light.zoom');
         close.addEventListener('click', function () { closeWindow(win); });
         explicitClose.addEventListener('click', function () { closeWindow(win); });
-        minimize.addEventListener('click', function () {
-          win.classList.add('is-minimized');
-          window.setTimeout(function () {
-            win.classList.remove('is-open', 'is-minimized');
-            win.setAttribute('aria-hidden', 'true');
-          }, reduceMotion ? 0 : 180);
-        });
-        zoom.addEventListener('click', function () { win.classList.toggle('is-maximized'); bringToFront(win); });
+        minimize.addEventListener('click', function () { minimizeWindow(win); });
+        zoom.addEventListener('click', function () { toggleMaximize(win); });
 
         var drag = null;
         titlebar.addEventListener('pointerdown', function (event) {
