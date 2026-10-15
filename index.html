@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-85nDAC0edw6E0oSEc1V6+sx4djAAgTUuTxFNiEZHtzk='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types default; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-85nDAC0edw6E0oSEc1V6+sx4djAAgTUuTxFNiEZHtzk='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types default; upgrade-insecure-requests" />
   <meta name="referrer" content="no-referrer" />
   <title>Aryo Romadhon Vardhana — Portfolio Desktop</title>
   <style>
@@ -26,25 +26,6 @@
       --label: #123633;
       --wallpaper-shade: rgba(2, 45, 42, .02);
       --focus: #073f3a;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --ink: #e8f3f1;
-        --muted: #9fb9b5;
-        --accent: #66d4c4;
-        --accent-deep: #9ae4da;
-        --window: rgba(16, 31, 30, .95);
-        --surface: #182c2a;
-        --surface-strong: #203836;
-        --line: rgba(183, 226, 220, .16);
-        --shadow: 0 32px 100px rgba(0, 0, 0, .46), 0 8px 28px rgba(0, 0, 0, .28);
-        --icon-bg: rgba(12, 35, 32, .72);
-        --icon-border: rgba(208, 245, 239, .22);
-        --label: #effbf9;
-        --wallpaper-shade: rgba(0, 13, 12, .36);
-        --focus: #b9fff4;
-      }
     }
 
     * { box-sizing: border-box; }
@@ -412,25 +393,6 @@
       --yellow: #ffd23f;
       --pink: #ff5c8a;
       --cream: #f7f1e3;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --ink: #29243a;
-        --muted: #625a51;
-        --accent: #2b5cff;
-        --accent-deep: #173dc9;
-        --window: #eadcbe;
-        --surface: #decdaa;
-        --surface-strong: #f7edda;
-        --line: #29243a;
-        --shadow: 9px 10px 0 rgba(43, 92, 255, .92), 15px 17px 0 rgba(0, 0, 0, .35);
-        --icon-bg: #f0e2c7;
-        --icon-border: #29243a;
-        --label: #fffaf0;
-        --wallpaper-shade: rgba(15, 24, 78, .10);
-        --focus: #ff5c8a;
-      }
     }
 
     body { background: #1699ed; }
