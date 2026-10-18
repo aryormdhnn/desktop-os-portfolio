@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-WkqA/y6CxhyWN3QHJmwt0r5d1yz0OVT7ViJ7j8B0m5I='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types default; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-TxC93p30sbWCR2xE6bohgS6lZDLPV+7h0RgO6AkEa2Y='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types default; upgrade-insecure-requests" />
   <meta name="referrer" content="no-referrer" />
   <title>Aryo Romadhon Vardhana — Portfolio Desktop</title>
   <style>
@@ -242,13 +242,13 @@
     }
     .project-visual { position: relative; height: 148px; overflow: hidden; padding: 17px; background: #e4edea; color: #112e2b; }
     .project-visual::before { content: ""; position: absolute; inset: 0; opacity: .75; }
-    .project-card:nth-child(1) .project-visual::before { background: linear-gradient(145deg, #d5c9b8, #f2eee6 58%, #809991); }
-    .project-card:nth-child(2) .project-visual::before { background: linear-gradient(145deg, #b9c9cd, #e9eff0 60%, #657c82); }
-    .project-card:nth-child(3) .project-visual::before { background: linear-gradient(145deg, #3c2d25, #957361 60%, #e5d2bd); }
-    .project-card:nth-child(4) .project-visual::before { background: linear-gradient(145deg, #e6eeee, #fafcfc 60%, #8aadb0); }
-    .project-card:nth-child(5) .project-visual::before { background: linear-gradient(145deg, #d8d7ea, #f7f6ff 58%, #6874a3); }
-    .project-card:nth-child(6) .project-visual::before { background: linear-gradient(145deg, #c9d9f1, #f5f8ff 58%, #536aa8); }
-    .project-card:nth-child(7) .project-visual::before { background: linear-gradient(145deg, #f1d5c1, #fff5eb 58%, #b96e4d); }
+    .project-card.grad-1 .project-visual::before { background: linear-gradient(145deg, #d5c9b8, #f2eee6 58%, #809991); }
+    .project-card.grad-2 .project-visual::before { background: linear-gradient(145deg, #b9c9cd, #e9eff0 60%, #657c82); }
+    .project-card.grad-3 .project-visual::before { background: linear-gradient(145deg, #3c2d25, #957361 60%, #e5d2bd); }
+    .project-card.grad-4 .project-visual::before { background: linear-gradient(145deg, #e6eeee, #fafcfc 60%, #8aadb0); }
+    .project-card.grad-5 .project-visual::before { background: linear-gradient(145deg, #d8d7ea, #f7f6ff 58%, #6874a3); }
+    .project-card.grad-6 .project-visual::before { background: linear-gradient(145deg, #c9d9f1, #f5f8ff 58%, #536aa8); }
+    .project-card.grad-7 .project-visual::before { background: linear-gradient(145deg, #f1d5c1, #fff5eb 58%, #b96e4d); }
     .project-card__link { display: block; color: inherit; text-decoration: none; }
     .mock-browser { position: relative; z-index: 1; height: 100%; padding: 12px; border-radius: 7px; background: rgba(255,255,255,.88); box-shadow: 0 16px 40px rgba(15,35,32,.2); transform: rotate(-1deg) translateY(4px); }
     .mock-bar { width: 42%; height: 5px; margin-bottom: 11px; border-radius: 5px; background: currentColor; opacity: .25; }
@@ -264,6 +264,28 @@
     .tag { flex: none; padding: 4px 7px; border: 1px solid var(--line); border-radius: 999px; color: var(--accent-deep); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
     .category { margin-bottom: 8px !important; color: var(--accent-deep); font-size: 11px; font-weight: 600; }
     .description { margin: 0 !important; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .work-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .work-tab {
+      appearance: none;
+      cursor: pointer;
+      padding: 11px 15px 10px;
+      border: 2px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: 3px 3px 0 var(--line);
+      font-family: "Press Start 2P", monospace;
+      font-size: 8px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: uppercase;
+      transition: transform .14s ease, box-shadow .14s ease, background-color .14s ease;
+    }
+    .work-tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--line); }
+    .work-tab:active { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--line); }
+    .work-tab.is-active { background: var(--yellow); }
+    .work-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .work-panel[hidden] { display: none; }
 
     .about-body {
       color: #182321;
@@ -827,14 +849,24 @@
         <p class="eyebrow">Selected work</p>
         <h2 class="display-title">Seven ideas, shaped into clear digital experiences.</h2>
         <p class="lead">Four concept explorations and three Figma UI kits across websites, dashboards, and product experiences.</p>
-        <div class="project-grid">
-          <article class="project-card"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>Northvale Estate</h3><span class="tag">Concept</span></div><p class="category">Real Estate Website / Framer</p><p class="description">An elegant property experience with clear navigation and structured browsing.</p></div></article>
-          <article class="project-card"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>Nexora Logistic</h3><span class="tag">Concept</span></div><p class="category">Logistics Website / Framer</p><p class="description">A clear corporate website built around services, operations, and credibility.</p></div></article>
-          <article class="project-card"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>AROMA Coffee</h3><span class="tag">Concept</span></div><p class="category">Brand Website / UI Design</p><p class="description">Expressive storytelling and warm product presentation for a coffee brand.</p></div></article>
-          <article class="project-card"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>Healthcare Dashboard</h3><span class="tag">Concept</span></div><p class="category">Product Design / Dashboard</p><p class="description">A practical interface for organizing complex information with clarity.</p></div></article>
-          <article class="project-card"><a class="project-card__link" href="https://ui8.net/fuwa-team/products/freight-company-website-ui-kit--vindah" target="_blank" rel="noopener"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>Freight Company Website UI Kit — Vindah</h3><span class="tag">UI Kit</span></div><p class="description">A sleek UI kit for building freight company websites, designed in Figma. Made for a friend.</p></div></a></article>
-          <article class="project-card"><a class="project-card__link" href="https://ui8.net/fuwa-team/products/ai-chatbot-saas-dashboard-ui-kit--chatku" target="_blank" rel="noopener"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>AI Chatbot SaaS Dashboard UI Kit — Chatku</h3><span class="tag">UI Kit</span></div><p class="description">A sleek and modular UI kit for building modern AI Chatbot SaaS dashboards, designed in Figma.</p></div></a></article>
-          <article class="project-card"><a class="project-card__link" href="https://ui8.net/fuwa-team/products/food-restaurant-website-ui-kit--platieu" target="_blank" rel="noopener"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>Food Restaurant Website UI Kit — Platieu</h3><span class="tag">UI Kit</span></div><p class="description">A UI kit for restaurant websites — share your tasty menu to the world and let guests reserve a table. Designed in Figma.</p></div></a></article>
+        <div class="work-tabs" role="tablist" aria-label="Portfolio categories">
+          <button class="work-tab is-active" type="button" role="tab" id="work-tab-design" aria-controls="work-panel-design" aria-selected="true">UIUX Design &amp; Development</button>
+          <button class="work-tab" type="button" role="tab" id="work-tab-kits" aria-controls="work-panel-kits" aria-selected="false" tabindex="-1">UI Kits</button>
+        </div>
+        <div class="work-panel is-active" id="work-panel-design" role="tabpanel" aria-labelledby="work-tab-design" tabindex="0">
+          <div class="project-grid">
+          <article class="project-card grad-1"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>Northvale Estate</h3><span class="tag">Concept</span></div><p class="category">Real Estate Website / Framer</p><p class="description">An elegant property experience with clear navigation and structured browsing.</p></div></article>
+          <article class="project-card grad-2"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>Nexora Logistic</h3><span class="tag">Concept</span></div><p class="category">Logistics Website / Framer</p><p class="description">A clear corporate website built around services, operations, and credibility.</p></div></article>
+          <article class="project-card grad-3"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>AROMA Coffee</h3><span class="tag">Concept</span></div><p class="category">Brand Website / UI Design</p><p class="description">Expressive storytelling and warm product presentation for a coffee brand.</p></div></article>
+          <article class="project-card grad-4"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>Healthcare Dashboard</h3><span class="tag">Concept</span></div><p class="category">Product Design / Dashboard</p><p class="description">A practical interface for organizing complex information with clarity.</p></div></article>
+          </div>
+        </div>
+        <div class="work-panel" id="work-panel-kits" role="tabpanel" aria-labelledby="work-tab-kits" tabindex="0" hidden>
+          <div class="project-grid">
+          <article class="project-card grad-5"><a class="project-card__link" href="https://ui8.net/fuwa-team/products/freight-company-website-ui-kit--vindah" target="_blank" rel="noopener"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>Freight Company Website UI Kit — Vindah</h3><span class="tag">UI Kit</span></div><p class="description">A sleek UI kit for building freight company websites, designed in Figma. Made for a friend.</p></div></a></article>
+          <article class="project-card grad-6"><a class="project-card__link" href="https://ui8.net/fuwa-team/products/ai-chatbot-saas-dashboard-ui-kit--chatku" target="_blank" rel="noopener"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>AI Chatbot SaaS Dashboard UI Kit — Chatku</h3><span class="tag">UI Kit</span></div><p class="description">A sleek and modular UI kit for building modern AI Chatbot SaaS dashboards, designed in Figma.</p></div></a></article>
+          <article class="project-card grad-7"><a class="project-card__link" href="https://ui8.net/fuwa-team/products/food-restaurant-website-ui-kit--platieu" target="_blank" rel="noopener"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>Food Restaurant Website UI Kit — Platieu</h3><span class="tag">UI Kit</span></div><p class="description">A UI kit for restaurant websites — share your tasty menu to the world and let guests reserve a table. Designed in Figma.</p></div></a></article>
+          </div>
         </div>
       </div>
     </section>
@@ -1068,6 +1100,34 @@
 
       desktop.addEventListener('pointerdown', function (event) {
         if (event.target === desktop) shortcuts.forEach(function (shortcut) { shortcut.blur(); });
+      });
+
+      var workTabs = Array.prototype.slice.call(document.querySelectorAll('.work-tab'));
+      function activateWorkTab(tab, focusTab) {
+        workTabs.forEach(function (t) {
+          var selected = t === tab;
+          t.classList.toggle('is-active', selected);
+          t.setAttribute('aria-selected', selected ? 'true' : 'false');
+          t.tabIndex = selected ? 0 : -1;
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          if (panel) {
+            panel.classList.toggle('is-active', selected);
+            if (selected) panel.removeAttribute('hidden');
+            else panel.setAttribute('hidden', '');
+          }
+        });
+        if (focusTab) tab.focus();
+      }
+      workTabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { activateWorkTab(tab, false); });
+        tab.addEventListener('keydown', function (event) {
+          var idx = null;
+          if (event.key === 'ArrowRight' || event.key === 'ArrowDown') idx = (i + 1) % workTabs.length;
+          else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') idx = (i - 1 + workTabs.length) % workTabs.length;
+          else if (event.key === 'Home') idx = 0;
+          else if (event.key === 'End') idx = workTabs.length - 1;
+          if (idx !== null) { event.preventDefault(); activateWorkTab(workTabs[idx], true); }
+        });
       });
     }());
   </script>
