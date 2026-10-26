@@ -255,7 +255,6 @@
     .project-card.grad-17 .project-visual::before { background: linear-gradient(145deg, #b8d4c0, #eef7f0 58%, #3f7a4d); }
     .project-card.grad-18 .project-visual::before { background: linear-gradient(145deg, #d4c9a8, #faf5e9 58%, #7a6b3f); }
     .project-card.grad-19 .project-visual::before { background: linear-gradient(145deg, #e8c9b8, #fbf0e9 58%, #a85c3f); }
-    .project-card.grad-20 .project-visual::before { background: linear-gradient(145deg, #cc0000, #ff6b5e 58%, #7a1010); }
     .project-visual img.project-shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
     .project-card__link { display: block; color: inherit; text-decoration: none; }
     .mock-browser { position: relative; z-index: 1; height: 100%; padding: 12px; border-radius: 7px; background: rgba(255,255,255,.88); box-shadow: 0 16px 40px rgba(15,35,32,.2); transform: rotate(-1deg) translateY(4px); }
@@ -377,8 +376,6 @@
         gap: 16px 6px;
       }
       .shortcut { grid-column: span 2; width: 100%; gap: 6px; }
-      .shortcut:nth-child(4) { grid-column: 2 / span 2; }
-      .shortcut:nth-child(5) { grid-column: 4 / span 2; }
       .shortcut__tile { width: 58px; height: 58px; border-radius: 17px; }
       .shortcut svg { width: 23px; height: 23px; }
       .shortcut__label { font-size: 11px; }
@@ -826,6 +823,10 @@
         <span class="shortcut__tile" aria-hidden="true"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><rect x="32" y="32" width="80" height="80" rx="8"/><rect x="144" y="32" width="80" height="80" rx="8"/><rect x="32" y="144" width="80" height="80" rx="8"/><rect x="144" y="144" width="80" height="80" rx="8"/></svg></span>
         <span class="shortcut__label">Framer Template</span>
       </a>
+      <a class="shortcut" href="wahana-honda-case-study.html" target="_blank" rel="noopener noreferrer" aria-label="Open Wahana Honda UX case study in a new tab">
+        <span class="shortcut__tile" aria-hidden="true"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M48 32h112l48 48v144a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V40a8 8 0 0 1 8-8z"/><path d="M160 32v48h48"/><path d="M80 112h96"/><path d="M80 152h96"/><path d="M80 192h64"/></svg></span>
+        <span class="shortcut__label">Case Study</span>
+      </a>
     </nav>
 
     <section class="window" id="window-work" role="dialog" aria-modal="true" aria-labelledby="title-work" aria-hidden="true" style="--window-width:780px;--window-height:650px;--window-top:34px;--window-left:calc(50% - 350px)">
@@ -835,7 +836,7 @@
       </div>
       <div class="window-body">
         <p class="eyebrow">Selected work</p>
-        <h2 class="display-title">Fourteen ideas, shaped into clear digital experiences.</h2>
+        <h2 class="display-title">Thirteen ideas, shaped into clear digital experiences.</h2>
         <p class="lead">Figma UI kits and client development work across websites, dashboards, and product experiences.</p>
         <div class="work-tabs" role="tablist" aria-label="Portfolio categories">
           <button class="work-tab is-active" type="button" role="tab" id="work-tab-design" aria-controls="work-panel-design" aria-selected="true">UIUX Design</button>
@@ -852,7 +853,6 @@
           <article class="project-card grad-16"><div class="project-visual"><img class="project-shot" src="maid-service.jpg" alt="Maid service website design, desktop and mobile views" loading="lazy"></div><div class="project-content"><div class="project-topline"><h3>Maid Service Website</h3></div><p class="category">Maid Agency Website</p><p class="description">A website design for a maid agency, with helper browsing, pricing, and service categories.</p></div></article>
           <article class="project-card grad-17"><div class="project-visual"><img class="project-shot" src="energy-website.jpg" alt="Clean energy company website design" loading="lazy"></div><div class="project-content"><div class="project-topline"><h3>Clean Energy Website</h3></div><p class="category">Energy Company Website</p><p class="description">A website design for a clean energy company, with impact stories, partner testimonials, and program sections.</p></div></article>
           <article class="project-card grad-19"><div class="project-visual"><img class="project-shot" src="pos-dashboard.jpg" alt="Coffee shop POS dashboard UI design" loading="lazy"></div><div class="project-content"><div class="project-topline"><h3>SuKopi POS Dashboard</h3></div><p class="category">POS Dashboard / UI Design</p><p class="description">A point-of-sale dashboard UI for a coffee shop, with menu, stock tracking, and order management.</p></div></article>
-          <article class="project-card grad-20"><a class="project-card__link" href="wahana-honda-case-study.html"><div class="project-visual"><div class="mock-browser"><div class="mock-bar"></div><div class="mock-heading"></div><div class="mock-lines"><span></span><span></span></div><div class="mock-panels"><i></i><i></i><i></i></div></div></div><div class="project-content"><div class="project-topline"><h3>Wahana Honda UX Case Study</h3></div><p class="category">UX Case Study</p><p class="description">A heuristic audit and conceptual redesign of a motorcycle service app, focused on booking flow and information hierarchy.</p></div></a></article>
           </div>
         </div>
         <div class="work-panel" id="work-panel-dev" role="tabpanel" aria-labelledby="work-tab-dev" tabindex="0" hidden>
