@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Wahana Honda: Improving the Mobile Experience Through Heuristic Evaluation</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1a1a1a; line-height: 1.75; font-size: 17px; background: #fff; }
+  .topbar { border-bottom: 1px solid #e5e5e5; padding: 16px 20px; }
+  .topbar a { color: #cc0000; text-decoration: none; font-size: 14px; font-weight: 600; }
+  .topbar a:hover { text-decoration: underline; }
+  article { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
+  .kicker { color: #cc0000; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size: 40px; line-height: 1.2; margin: 16px 0 14px; }
+  .subtitle { font-size: 19px; color: #444; line-height: 1.6; }
+  .meta { margin: 28px 0 0; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #e5e5e5; padding: 18px 0; font-size: 14px; line-height: 2; color: #555; }
+  .meta b { color: #1a1a1a; }
+  h2 { font-family: Georgia, "Times New Roman", serif; font-size: 27px; line-height: 1.3; margin: 52px 0 16px; padding-bottom: 10px; border-bottom: 1px solid #1a1a1a; }
+  h2 .num { color: #cc0000; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 15px; vertical-align: 5px; margin-right: 10px; }
+  h3 { font-size: 19px; margin: 28px 0 10px; }
+  p { margin-bottom: 14px; }
+  ul, ol { margin: 0 0 16px 24px; }
+  li { margin-bottom: 8px; }
+  .note { background: #fafafa; border: 1px solid #e5e5e5; padding: 16px 20px; margin: 18px 0; font-size: 15px; color: #555; }
+  .callout { background: #fafafa; border-left: 3px solid #cc0000; padding: 18px 22px; margin: 18px 0; }
+  .tag { display: inline-block; border: 1px solid #ccc; border-radius: 20px; padding: 3px 12px; font-size: 13px; margin: 0 4px 6px 0; color: #444; }
+  .finding { margin-bottom: 24px; }
+  .finding .sev { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .finding .sev.high { color: #cc0000; }
+  .finding .sev.med { color: #b26a00; }
+  .finding .sev.low { color: #1a7a3a; }
+  .compare { display: flex; gap: 20px; margin: 24px 0; }
+  .compare figure { flex: 1; min-width: 0; }
+  .compare img { width: 100%; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,.14); display: block; }
+  .compare figcaption { font-size: 13px; color: #666; margin-top: 10px; line-height: 1.5; }
+  .compare figcaption b { color: #1a1a1a; }
+  .footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid #e5e5e5; font-size: 13px; color: #888; line-height: 1.7; }
+  @media (max-width: 640px) {
+    h1 { font-size: 30px; }
+    .compare { flex-direction: column; }
+    article { padding-top: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"><a href="index.html">← Back to portfolio</a></div>
+<article>
+
+<p class="kicker">Independent UI/UX Case Study</p>
+<h1>Wahana Honda: Improving the Mobile Experience Through Heuristic Evaluation</h1>
+<p class="subtitle">A UX audit and conceptual redesign focused on service booking, information hierarchy, and usability.</p>
+
+<div class="meta">
+  <b>App:</b> Wahana Honda (Wahana Makmur Sejati) &nbsp;·&nbsp; <b>Platform:</b> Android<br>
+  <b>Project type:</b> Independent UX/UI case study &nbsp;·&nbsp; <b>Role:</b> UI/UX Designer<br>
+  <b>Scope:</b> Home screen, service history, digital KPB, and recommendations for selected supporting screens<br>
+  <b>Approach:</b> Heuristic evaluation, task-based UX analysis, and conceptual redesign
+</div>
+
+<h2><span class="num">01</span>Background</h2>
+<p>Wahana Honda is an application for Honda motorcycle customers in the Jakarta and Tangerang areas. Its features include motorcycle information, AHASS service booking, digital KPB, service history, HepiGo loyalty points, and merchant promotions. The app brings several customer needs into one place. For this study, I focused on whether the home screen makes common tasks — especially booking a service and checking motorcycle-related information — easy to find.</p>
+<p><strong>Key question:</strong> Does the home screen help users identify their next action quickly, or do competing elements make that decision harder?</p>
+<p>The original case study noted that the app had more than one million downloads on Google Play at the time the source was reviewed. This figure indicates reach, but does not by itself establish user satisfaction or prove which tasks are most common.</p>
+
+<h2><span class="num">02</span>Research Approach</h2>
+<p>This independent review used publicly available screenshots from the app's Google Play listing. I conducted a heuristic review of seven published screens: onboarding, home, service booking, digital KPB, service history, loyalty, and the closing screen. The review focused on four selected usability principles associated with Jakob Nielsen's heuristics:</p>
+<ul>
+  <li>Visibility of system status</li>
+  <li>Consistency and standards</li>
+  <li>Aesthetic and minimalist design</li>
+  <li>Error prevention</li>
+</ul>
+<p>I also mapped the main tasks considered in this study: booking a service, checking remaining KPB benefits, and checking loyalty points. These are task hypotheses to guide the redesign, not a verified ranking of user needs.</p>
+<div class="note"><strong>Method limitation:</strong> I did not conduct interviews, observe users using the live app, or validate the findings through usability testing. The findings below are expert-review observations based on publicly available materials. The persona and proposed success metrics are hypotheses to validate in future research.</div>
+
+<h2><span class="num">03</span>Key Findings</h2>
+
+<div class="finding">
+  <p class="sev high">Home screen — High priority</p>
+  <p>Several elements compete for attention: promotional content, a profile-completion card, loyalty points, a motorcycle-linking card, and an eight-item menu grid. Some text appears small, and a circular badge appears to extend beyond the intended layout. This may make the screen harder to scan and can reduce the prominence of service booking.</p>
+</div>
+
+<div class="finding">
+  <p class="sev med">Service history — Medium priority</p>
+  <p>Product names use inconsistent capitalization, and the selected-tab highlight appears to overlap the tab strip. These inconsistencies can make the interface feel less polished and may weaken visual clarity.</p>
+</div>
+
+<div class="finding">
+  <p class="sev med">Digital KPB — Medium priority</p>
+  <p>A tooltip overlaps other content, while decorative icon elements appear crowded near the screen edge. The “TUKARKAN” action is also visually ambiguous in the reviewed screenshot.</p>
+</div>
+
+<div class="finding">
+  <p class="sev med">Loyalty — Medium priority</p>
+  <p>Decorative elements and a prominent badge compete with the “Beri Rating” call to action. From the screenshot alone, the label may be interpreted as asking users to rate the app rather than perform an in-app loyalty action. This interpretation needs validation.</p>
+</div>
+
+<div class="finding">
+  <p class="sev low">Service booking — Low priority</p>
+  <p>The form structure appears comparatively clear. The headline spans three lines with tight line spacing, so a small typographic adjustment may improve readability.</p>
+</div>
+
+<div class="finding">
+  <p class="sev">Onboarding and closing screen</p>
+  <p>These screens appear comparatively clean, with clear hierarchy and strong contrast. No major issue was identified in the reviewed screenshots.</p>
+</div>
+
+<div class="note"><strong>Severity note:</strong> The high/medium/low labels are qualitative prioritization judgments for this concept study, not the result of a formal severity-scoring workshop or user-impact measurement.</div>
+
+<h2><span class="num">04</span>Problem Definition</h2>
+<h3>Problem statement</h3>
+<div class="callout">The home screen presents several content groups at once — promotions, points, profile completion, motorcycle information, and service menus. In the reviewed screenshot, the primary service-booking action does not stand out as clearly as it could, while small text and overlapping elements may slow down visual scanning.</div>
+<h3>Design challenge</h3>
+<p>How might the home screen prioritize common motorcycle-service tasks while preserving access to secondary features and the brand's existing identity?</p>
+<h3>Proto-persona (hypothesis)</h3>
+<p>“Budi,” a 32-year-old daily motorcycle rider, represents a potential user who opens the app to book a service or check KPB benefits. He values clear information and a direct route to the task. This proto-persona is based on assumptions, not interviews or validated user data.</p>
+<h3>Design objectives</h3>
+<ul>
+  <li>Make the “Pesan Servis” action easier to notice from the home screen.</li>
+  <li>Reduce competition between promotional content.</li>
+  <li>Bring key motorcycle information — such as the next service and remaining KPB — into a clearer summary.</li>
+  <li>Improve text readability and prevent elements from overlapping.</li>
+  <li>Preserve recognizable Wahana Honda visual branding.</li>
+</ul>
+<p>The proposed “find the booking action within three seconds” target is a benchmark to test, not a result already achieved.</p>
+
+<h2><span class="num">05</span>Ideation &amp; Prioritization</h2>
+<h3>Priority 0 — Core task clarity</h3>
+<ol>
+  <li>Reduce the number of competing promotional banners on the home screen to one primary hero banner.</li>
+  <li>Make “Pesan Servis” the primary, full-width call to action beneath the hero area.</li>
+  <li>Combine motorcycle name, next service information, and remaining KPB into a “Motorku” summary card, where the relevant data is available.</li>
+</ol>
+<h3>Priority 1 — Readability and consistency</h3>
+<ol>
+  <li>Give the eight-item service grid more breathing room and keep labels legible.</li>
+  <li>Remove badges or decorative elements that collide with layout boundaries.</li>
+  <li>Standardize product-name capitalization and align tab indicators consistently.</li>
+</ol>
+<h3>Priority 2 — Contextual actions</h3>
+<p>Review the loyalty CTA label so it accurately describes the action available on that screen. “Klaim Poin” is only a possible alternative if it matches the actual function; the label should be confirmed against the product's real behavior.</p>
+<h3>Proposed home-screen flow</h3>
+<p>Open app → scan motorcycle status and points → tap “Pesan Servis” → select AHASS location → select a schedule → confirm booking. This describes the proposed task flow. The number of screens, taps, and time required should be confirmed against the actual app prototype before claiming a specific reduction.</p>
+
+<h2><span class="num">06</span>Design Decisions</h2>
+<p>The redesign preserves the existing red-and-white brand palette, bold headlines, rounded buttons, and bottom navigation. The main changes concern information order and emphasis rather than a full visual rebrand.</p>
+<p><span class="tag">One primary action per screen</span> <span class="tag">Clear visual hierarchy</span> <span class="tag">Brand identity preserved</span> <span class="tag">Spacing &amp; readability</span></p>
+
+<h3>Home screen</h3>
+<ul>
+  <li>Consolidate competing promotional content into one hero banner.</li>
+  <li>Place “Pesan Servis” in a prominent position beneath the hero.</li>
+  <li>Group motorcycle details and KPB status in a “Motorku” card.</li>
+  <li>Retain the service grid while improving spacing and alignment.</li>
+  <li>Remove elements that extend beyond the layout.</li>
+</ul>
+<div class="compare">
+  <figure>
+    <img src="wahana-before-home.jpg" alt="Original Wahana Honda home screen from Google Play">
+    <figcaption><b>Before —</b> Original screenshot from the Wahana Honda Google Play listing. Banner, profile card, points card, and motorcycle-linking card stack up, and a circular badge overlaps the grid edge.</figcaption>
+  </figure>
+  <figure>
+    <img src="wahana-after-home.png" alt="Redesigned Wahana Honda home screen concept">
+    <figcaption><b>After —</b> Conceptual redesign: one points hero banner, full-width “Pesan Servis” CTA, a “Motorku” card with KPB status, and a generously spaced service grid.</figcaption>
+  </figure>
+</div>
+
+<h3>Service history</h3>
+<ul>
+  <li>Standardize product-name capitalization.</li>
+  <li>Correct the tab indicator so it no longer overlaps the tab strip.</li>
+  <li>Arrange status, cost, and detail actions in a more consistent structure.</li>
+</ul>
+<div class="compare">
+  <figure>
+    <img src="wahana-before-history.jpg" alt="Original Wahana Honda service history screen from Google Play">
+    <figcaption><b>Before —</b> Original screenshot from the Google Play listing. Product names use inconsistent capitalization and the tab highlight overlaps the tab strip.</figcaption>
+  </figure>
+  <figure>
+    <img src="wahana-after-history.png" alt="Redesigned service history screen concept">
+    <figcaption><b>After —</b> Conceptual redesign: overlap-free tabs, consistent Title Case product names, status and cost in structured rows, clear detail buttons.</figcaption>
+  </figure>
+</div>
+
+<h3>Digital KPB</h3>
+<ul>
+  <li>Integrate the remaining-coupon information into the content layout instead of allowing a tooltip to obscure other elements.</li>
+  <li>Make the exchange action more explicit with a label such as “Tukarkan Sekarang,” provided it accurately reflects the underlying function.</li>
+  <li>Align benefit icons within the layout.</li>
+</ul>
+<div class="compare">
+  <figure>
+    <img src="wahana-before-kpb.jpg" alt="Original Wahana Honda digital KPB screen from Google Play">
+    <figcaption><b>Before —</b> Original screenshot from the Google Play listing. A tooltip overlaps other content and decorative icons crowd the screen edge.</figcaption>
+  </figure>
+  <figure>
+    <img src="wahana-after-kpb.png" alt="Redesigned digital KPB screen concept">
+    <figcaption><b>After —</b> Conceptual redesign: remaining coupons become an integrated banner, bold “Tukarkan Sekarang” buttons, benefit icons neatly arranged inside the layout.</figcaption>
+  </figure>
+</div>
+
+<h3>Design trade-offs to validate</h3>
+<p>Moving secondary promotions away from the home screen may reduce distraction, but could also make promotions less visible. Combining motorcycle information into one card may improve scanning, but the card should not become too dense. These trade-offs should be evaluated with users before implementation.</p>
+<p>The “Before” screens are screenshots from the public Google Play listing reviewed for this study; the “After” screens are conceptual mockups created for portfolio purposes.</p>
+
+<h2><span class="num">07</span>Validation Plan</h2>
+<p>Because this study is based on a heuristic review, the proposed redesign still needs usability validation.</p>
+<h3>Proposed moderated usability test</h3>
+<p>Recruit five Honda motorcycle owners in Jakarta or Tangerang as an initial qualitative test. Ask participants to:</p>
+<ol>
+  <li>Find and start the service-booking task from the home screen.</li>
+  <li>Find the remaining KPB information.</li>
+  <li>Find the action to redeem or use loyalty points.</li>
+</ol>
+<h3>Proposed measures</h3>
+<ul>
+  <li>Time to locate “Pesan Servis.”</li>
+  <li>Task completion rate.</li>
+  <li>Misclicks or incorrect selections.</li>
+  <li>Participant comments about clarity and confidence.</li>
+</ul>
+<p>The three-second target for locating the booking action and a 90% task-completion target are proposed benchmarks, not established standards or measured results. With five participants, the test can help uncover usability issues but cannot provide a statistically reliable estimate of overall user performance. If a suitable live or instrumented prototype and sufficient traffic are available, an A/B test could later compare the existing and redesigned home screens. Booking completion should be measured only if the event can be tracked consistently.</p>
+
+<h2><span class="num">08</span>Expected Impact &amp; Next Steps</h2>
+<h3>Expected impact</h3>
+<p>The redesign is intended to make the primary booking action easier to notice, improve access to motorcycle-related information, and create more consistent visual patterns across selected screens. These are expected benefits, not verified outcomes. Changes in booking conversion, retention, or overall satisfaction cannot be claimed until they are measured.</p>
+<h3>Next steps</h3>
+<ol>
+  <li>Test the three redesigned screens with representative users.</li>
+  <li>Revise the design based on observed task failures and participant feedback.</li>
+  <li>Define a small set of reusable typography, spacing, capitalization, and component rules.</li>
+  <li>Revisit the loyalty screen and confirm CTA wording against the actual feature.</li>
+  <li>If product analytics are available, define a baseline before evaluating changes in booking behavior.</li>
+</ol>
+<h3>Reflection</h3>
+<p>This study demonstrates how a structured interface review can translate visible usability concerns into design hypotheses and prioritized improvements. Its main limitation is the absence of direct user research and testing; validation is therefore the most important next step.</p>
+
+<div class="footer">
+  <strong>Project Disclaimer.</strong> This is an independent portfolio study and is not affiliated with Wahana Makmur Sejati or Honda. The audit is based on publicly available Google Play materials reviewed on 25 October 2026. The redesigned screens are conceptual proposals, not official product designs. Findings, persona details, and success metrics should be validated before implementation.
+</div>
+
+</article>
+</body>
+</html>
